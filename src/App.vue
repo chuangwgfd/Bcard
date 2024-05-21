@@ -6,68 +6,16 @@
     <section class="center">
       <nav class="menu">
         <ul>
-          <li>
-            <Icon icon="mdi:list-box" />
-            <span>所有看板</span>
-          </li>
-          <li>
-            <Icon icon="mdi:hot" />
-            <span>即時熱門看版</span>
-          </li>
-          <li>
-            <Icon icon="ph:rabbit-fill" />
-            <span>好兔研究室</span>
-          </li>
-          <li>
-            <Icon icon="mingcute:game-2-fill" />
-            <span>遊戲大廳</span>
-          </li>
-          <li>
-            <Icon icon="fluent:pen-sparkle-20-filled" />
-            <span>創作精華區</span>
-          </li>
-          <li>
-            <Icon icon="fluent:people-chat-16-filled" />
-            <span>社群</span>
+          <li v-for="(mainMenuItem, i) in mainMenu" :key="i">
+            <Icon :icon="mainMenuItem.icon" />
+            <span>{{ mainMenuItem.label }}</span>
           </li>
         </ul>
-        <span style="color: #ccc;">B.B.精選看板</span>
+        <span style="color: #ccc; padding-left: 1rem;">B.B.精選看板</span>
         <ul>
-          <li>
-            <Icon icon="icon-park-solid:beauty" />
-            <span>美妝</span>
-          </li>
-          <li>
-            <Icon icon="mdi:hot" />
-            <span>穿搭</span>
-          </li>
-          <li>
-            <Icon icon="ph:rabbit-fill" />
-            <span>健身減肥</span>
-          </li>
-          <li>
-            <Icon icon="mingcute:game-2-fill" />
-            <span>迷因</span>
-          </li>
-          <li>
-            <Icon icon="mingcute:game-2-fill" />
-            <span>好兔小姐</span>
-          </li>
-          <li>
-            <Icon icon="mingcute:game-2-fill" />
-            <span>奇妙機器人</span>
-          </li>
-          <li>
-            <Icon icon="mingcute:game-2-fill" />
-            <span>3D列印同好社群</span>
-          </li>
-          <li>
-            <Icon icon="mingcute:game-2-fill" />
-            <span>一番賞情報網</span>
-          </li>
-          <li>
-            <Icon icon="mingcute:game-2-fill" />
-            <span>紙箱哥研究社</span>
+          <li v-for="(selectMenuItem, i) in selectMenu" :key="i">
+            <Icon :icon="selectMenuItem.icon" />
+            <span>{{ selectMenuItem.label }}</span>
           </li>
         </ul>
       </nav>
@@ -84,8 +32,9 @@
 
 <script>
 import PostItem from './components/PostItem.vue'
-import { Icon } from '@iconify/vue2';
-import article from './assets/article.json'
+import { Icon } from '@iconify/vue2'
+import article from './locales/article.json'
+import menu from './locales/menu.json'
 
 export default {
   name: 'App',
@@ -95,7 +44,20 @@ export default {
   },
   data() {
     return {
-      article
+      article,
+      menu,
+    }
+  },
+  computed: {
+    mainMenu() {
+      const icons = ['mdi:list-box', 'mdi:hot', 'ph:rabbit-fill', 'mingcute:game-2-fill', 'fluent:pen-sparkle-20-filled', 'fluent:people-chat-16-filled',]
+      const items = this.menu.slice(0, 6)
+      return items.map((d, i) => ({ label: d, icon: icons[i] }))
+    },
+    selectMenu() {
+      const icons = ['icon-park-solid:beauty', 'icon-park-outline:clothes-cardigan', 'mingcute:body-fill', 'fluent:emoji-meme-24-filled', 'fluent-emoji-high-contrast:man-with-bunny-ears', 'majesticons:robot', 'iconamoon:3d-fill', 'lets-icons:ticket-fill', 'fluent:box-24-filled']
+      const items = this.menu.slice(6)
+      return items.map((d, i) => ({ label: d, icon: icons[i] }))
     }
   },
 }
@@ -136,10 +98,14 @@ export default {
       display: flex
       align-items: center
       gap: .5rem
-      padding: 11px 0
+      padding: 8px 0 8px 16px
       font-size: 1.25rem
+      cursor: pointer
+      &:hover
+        background-color: #386D6E
       :first-child
         font-size: 1.75rem
+      
 
   .title
     font-weight: 500
