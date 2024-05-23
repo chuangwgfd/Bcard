@@ -1,4 +1,4 @@
-# dcardcopy
+# bcard
 
 ## Project setup
 ```
