@@ -8,6 +8,7 @@
     </div>
     <h3 class="title">{{ item.title }}</h3>
     <p class="content">{{ item.content }}</p>
+    <img v-if="item.image" :src="item.image" alt="">
   </div>
 </template>
 
@@ -47,4 +48,10 @@ export default {
 .content, .author
   font-size: 14px
   margin: 0
+img
+  width: 100%
+  height: 342px
+  object-fit: cover
+  border-radius: 1rem
+  margin-top: 1rem
 </style>
