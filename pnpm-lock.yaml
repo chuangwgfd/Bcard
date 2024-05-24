@@ -17,6 +17,9 @@ importers:
       vue:
         specifier: ^2.6.14
         version: 2.7.16
+      vue-router:
+        specifier: '4'
+        version: 4.3.2(vue@2.7.16)
     devDependencies:
       '@iconify/vue2':
         specifier: ^2.1.0
@@ -969,6 +972,9 @@ packages:
 
   '@vue/component-compiler-utils@3.3.0':
     resolution: {integrity: sha512-97sfH2mYNU+2PzGrmK2haqffDpVASuib9/w2/noxiFi31Z54hW+q3izKQXXQZSNhtiUpAI36uSuYepeBe4wpHQ==}
+
+  '@vue/devtools-api@6.6.1':
+    resolution: {integrity: sha512-LgPscpE3Vs0x96PzSSB4IGVSZXZBZHpfxs+ZA1d+VEPwHdOXowy/Y2CsvCAIFrf+ssVU1pD1jidj505EpUnfbA==}
 
   '@vue/shared@3.4.27':
     resolution: {integrity: sha512-DL3NmY2OFlqmYYrzp39yi3LDkKxa5vZVwxWdQ3rG0ekuWscHraeIbnI8t+aZK7qhYqEqWKTUdijadunb9pnrgA==}
@@ -3463,6 +3469,11 @@ packages:
       vue:
         optional: true
 
+  vue-router@4.3.2:
+    resolution: {integrity: sha512-hKQJ1vDAZ5LVkKEnHhmm1f9pMiWIBNGF5AwU67PdH7TyXCj/a4hTccuUuYCAMgJK6rO/NVYtQIEN3yL8CECa7Q==}
+    peerDependencies:
+      vue: ^3.2.0
+
   vue-style-loader@4.1.3:
     resolution: {integrity: sha512-sFuh0xfbtpRlKfm39ss/ikqs9AbKCoXZBpHeVZ8Tx650o0k0q/YCM7FRvigtxpACezfq6af+a7JeqVTWvncqDg==}
 
@@ -4961,6 +4972,8 @@ snapshots:
       - velocityjs
       - walrus
       - whiskers
+
+  '@vue/devtools-api@6.6.1': {}
 
   '@vue/shared@3.4.27': {}
 
@@ -7337,6 +7350,11 @@ snapshots:
       webpack: 5.91.0
     optionalDependencies:
       '@vue/compiler-sfc': 3.4.27
+      vue: 2.7.16
+
+  vue-router@4.3.2(vue@2.7.16):
+    dependencies:
+      '@vue/devtools-api': 6.6.1
       vue: 2.7.16
 
   vue-style-loader@4.1.3:

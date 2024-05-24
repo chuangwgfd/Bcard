@@ -1,4 +1,4 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = {
-  publicPath: '/bcard/'
+  publicPath: process.env.NODE_ENV === 'production' ? '/Bcard/' : '/'
 }
