@@ -1,5 +1,5 @@
 <template>
-  <div class="PostItem">
+  <div class="PostItem" @click="showDialog">
     <div class="author">
       <Icon class="authorIcon" icon="material-symbols:face-6" />
       <span>{{ item.author }}</span>
@@ -22,7 +22,12 @@ export default {
   },
   props: {
     item: Object
-  }
+  },
+  methods: {
+    showDialog(params) {
+      this.$emit('itemClick')
+    }
+  },
 }
 </script>
 
@@ -30,6 +35,7 @@ export default {
 .PostItem
   border-top: 1px solid #ddd
   padding: 20px 0
+  cursor: pointer
 .author
   display: flex
   align-items: center
