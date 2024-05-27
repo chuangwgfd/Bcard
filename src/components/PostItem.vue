@@ -8,7 +8,16 @@
     </div>
     <h3 class="title">{{ item.title }}</h3>
     <p class="content">{{ item.content }}</p>
-    <img v-if="item.image" :src="item.image" alt="">
+    <div class="footer">
+      <!-- <Icon icon="emojione-v1:red-heart" /> -->
+
+      <Icon v-for="(icon, i) in item.emoji" :key="i" :icon="icon" />
+      <span class="ml-5">{{ item.emojiCount }}</span>
+      <Icon icon="emojione-v1:right-speech-bubble" class="chat ml-5"/>
+      <span>{{ item.chatCount }}</span>
+      <Icon icon="material-symbols:bookmark" class="bookmark" />
+      <span>收藏</span>
+    </div>
   </div>
 </template>
 
@@ -34,7 +43,7 @@ export default {
 <style scoped lang="sass">
 .PostItem
   border-top: 1px solid #ddd
-  padding: 20px 0
+  padding: 1rem 0
   cursor: pointer
 .author
   display: flex
@@ -48,6 +57,19 @@ export default {
     margin-right: .5rem
   span
     color: #00000080
+
+.footer
+  color: #aaa
+  display: flex
+  align-items: center
+  font-size: 1.3rem
+  margin-top: .5rem
+  .ml-5
+    margin: 0 .3rem
+  .chat, .bookmark
+    margin-left: 3rem
+  span
+    font-size: 1rem
 
 .title
   margin: 8px 0

@@ -22,7 +22,10 @@
       <main>
         <img class="topBG" src="./assets/urban_tale.jpeg" alt="">
         <div class="content">
-          <h1 class="title">都市傳說</h1>
+          <div class="top">
+            <h1 class="title">都市傳說</h1>
+            <button>追蹤</button>
+          </div>
           <PostItem v-for="(item, i) in article" :key="i" :item="item" @itemClick="showDialog(i)"></PostItem>
         </div>
       </main>
@@ -148,7 +151,20 @@ export default {
       :first-child
         font-size: 1.75rem
       
-
+  .top
+    display: flex
+    justify-content: space-between
+    align-items: center
+    button
+      height: 40px
+      background-color: #386D6E
+      border: 0
+      color: #fff
+      font-weight: 500
+      border-radius: .5rem
+      padding: .5rem 1rem
+      cursor: pointer
+      line-height: 0
   .title
     font-weight: 500
 
